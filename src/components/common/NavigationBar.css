@@ -1,0 +1,22 @@
+.navigationBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #83db8e;
+}
+
+.logoContainer {
+    margin-left: 1rem;
+    justify-content: left;
+    width: 100%;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.logoutButtonContainer {
+    margin-right: 1rem;
+    justify-content: right;
+}

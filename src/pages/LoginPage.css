@@ -1,0 +1,52 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6f7e9;
+    opacity: 0.8;
+    background-image: radial-gradient(circle at center center, #20840e, #e6f7e9), repeating-radial-gradient(circle at center center, #20840e, #20840e, 10px, transparent 20px, transparent 10px);
+    background-blend-mode: multiply;
+}
+
+.loginForm {
+    border: 1px solid black;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    width: 20rem;
+    height: auto;
+    justify-content: center;
+    background-color: white;
+}
+
+.formImage, .loadingImage {
+    width: 100%;
+    height: auto;
+}
+
+.loadingImage {
+    animation-name: rotation;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.formInput {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+.formButton, .toggleButton {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+.toggleButton {
+    margin-top: 1rem;
+}

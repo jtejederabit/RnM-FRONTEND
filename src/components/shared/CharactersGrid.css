@@ -1,0 +1,19 @@
+.charactersGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.loadingContainer, .noCharactersFound {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 176.81px);
+}
+
+.noCharactersFound {
+    height: calc(100vh - 219.81px);
+}

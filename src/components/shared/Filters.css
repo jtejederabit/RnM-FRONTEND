@@ -1,0 +1,44 @@
+.filtersContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+    margin-left: 0.5rem;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.searchLabel {
+    margin: 0.5rem;
+    font-weight: bold;
+}
+
+.searchInput {
+    width: 15rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.resetButton {
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-self: self-end;
+}

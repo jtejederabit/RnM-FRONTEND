@@ -1,0 +1,17 @@
+.loadingImage {
+    width: 100%;
+    height: auto;
+    animation: rotation 5000ms linear infinite;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
