@@ -67,3 +67,8 @@ From Docker container
   npm run test
 ```
 
+## Extra Libraries
+
+- Jest (Testing) - Used to test React components
+- Axios (HTTP Client) - Used to fetch data from the BACKEND API
+- Redux Toolkit (State Management) - Used to manage the global state of the app in a more efficient way
