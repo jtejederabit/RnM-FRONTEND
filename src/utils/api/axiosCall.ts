@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(config => {
 axiosInstance.interceptors.response.use(response => {
     return response;
 }, error => {
-    if (error.response && error.response.status === 401) {
+    if (error.response && error.response.status === 401 || error.response.status === 403) {
         store.dispatch(clearToken());
         window.location.href = '/login';
     }
