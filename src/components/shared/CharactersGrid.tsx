@@ -12,28 +12,32 @@ import {AxiosError} from "axios";
 
 const CharactersGrid: React.FC = () => {
     const characters: ICharacter[] = useSelector((state: RootState) => state.characters.characters);
-    const filters = useSelector((state: RootState) => state.characters.filters);
     const currentPage = useSelector((state: RootState) => state.characters.currentPage);
     const dispatch = useDispatch();
     const { request } = useAxios();
 
     const [loading, setLoading] = useState<boolean>(true);
 
-
-
     useEffect(() => {
-        setLoading(true);
         const getCharacters = async () => {
+            const queryParams = new URLSearchParams(location.search);
+            const updatedFilters = {
+                status: queryParams.get('status') || '',
+                specie: queryParams.get('specie') || '',
+                type: queryParams.get('type') || '',
+                name: queryParams.get('name') || '',
+                page: Number(queryParams.get('page')) || 1,
+            };
+            dispatch(setFilters(updatedFilters));
+
             try {
+                setLoading(true);
                 const {results: characters, info} = await request('/characters', {
                     method: 'GET',
-                    params: {
-                        ...filters
-                    },
+                    params: updatedFilters,
                 });
-
                 dispatch(setCharacters(characters));
-                characters.length ? dispatch(setCount(info.pages)) : dispatch(setCount(0));
+                dispatch(setCount(characters.length ? info.pages : 0));
                 setLoading(false);
                 dispatch(setError(null));
             } catch (err: unknown) {
@@ -41,27 +45,9 @@ const CharactersGrid: React.FC = () => {
                 setLoading(false);
             }
         };
-        getCharacters();
-    }, [currentPage, filters]);
 
-    useEffect(() => {
-        const getParams = () => {
-            const queryParams = new URLSearchParams(location.search);
-            const status = queryParams.get('status');
-            const species = queryParams.get('specie');
-            const type = queryParams.get('type');
-            const name = queryParams.get('name');
-            const page = queryParams.get('page');
-            dispatch(setFilters({
-                status: status || '',
-                specie: species || '',
-                type: type || '',
-                name: name || '',
-                page: Number(page) || 1,
-            }));
-        }
-        getParams();
-    }, []);
+        getCharacters();
+    }, [currentPage, location.search]);
 
     return (
         <div className="charactersGrid">
